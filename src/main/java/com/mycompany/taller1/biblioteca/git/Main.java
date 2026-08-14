@@ -20,7 +20,7 @@ public class Main {
  static void ReadSearch(){
      boolean found=false;
      System.out.println("***** Search for a client *****");
-     System.out.println("Enter customer ID:");
+     System.out.println("Enter client ID:");
      String id=sc.nextLine();
      for(Client client: clients){
          if (client.getId().equals(id)) {
@@ -34,6 +34,28 @@ public class Main {
              System.out.println("Client not found");
          }
      } 
+ }
+ static void updateClient(){
+     boolean found=false;
+     System.out.println("***** Update for a client *****");
+     System.out.println("Enter client ID:");
+     String id=sc.nextLine();
+     for(Client client: clients){
+         if (client.getId().equals(id)) {
+             System.out.println("Enter new name");
+             String newName=sc.nextLine();
+             client.setName(newName);
+             System.out.println("Enter new telephone");
+             String newTelephone=sc.nextLine();
+             client.setTelephone(newTelephone);
+             System.out.println("Enter new email");
+             String newEmail=sc.nextLine();
+             client.setEmail(newEmail);
+         }
+     }
+     if(found==false){
+             System.out.println("Client not found");
+         }
  }
  public static void main(String[] args) {
  // Aquí irá el menú (Fase 8)
