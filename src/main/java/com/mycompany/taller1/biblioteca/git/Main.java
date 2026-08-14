@@ -12,6 +12,11 @@ public class Main {
  static void createClient(Client client){
      clients.add(client);
  }
+ static void ReadClient(){
+     for(Client client: clients){
+         System.out.println(client);
+     }
+ }
  
  public static void main(String[] args) {
  // Aquí irá el menú (Fase 8)
