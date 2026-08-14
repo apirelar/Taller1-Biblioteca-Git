@@ -30,7 +30,7 @@ public class Main {
              System.out.println("Email: "+client.getEmail());
              found=true;
          }
-         if(found==false){
+         if(!found){
              System.out.println("Client not found");
          }
      } 
@@ -51,12 +51,29 @@ public class Main {
              System.out.println("Enter new email");
              String newEmail=sc.nextLine();
              client.setEmail(newEmail);
+             found=true;
          }
      }
-     if(found==false){
+     if(!found){
              System.out.println("Client not found");
          }
  }
+ static void DeleteClient(){
+      boolean found=false;
+     System.out.println("***** Delete for a client *****");
+     System.out.println("Enter client ID:");
+     String id=sc.nextLine();
+     for(Client client: clients){
+         if (client.getId().equals(id)) {
+         clients.remove(client);
+         found=true;
+         }
+    }
+     if(!found){
+         System.out.println("Client not found");
+     }
+ }
+         
  public static void main(String[] args) {
  // Aquí irá el menú (Fase 8)
  }
