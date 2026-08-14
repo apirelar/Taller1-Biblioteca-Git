@@ -8,9 +8,9 @@ package com.mycompany.taller1.biblioteca.git;
  *
  * @author apire
  */
-public class Cliente extends Person{
+public class Client extends Person{
      private String email;
-    public Cliente(String id, String name, String telephone, String email) {
+    public Client(String id, String name, String telephone, String email) {
         super(id, name, telephone);
         this.email=email;
     }

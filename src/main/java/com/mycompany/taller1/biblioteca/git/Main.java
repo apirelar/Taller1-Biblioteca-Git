@@ -3,14 +3,17 @@
  */
 
 package com.mycompany.taller1.biblioteca.git;
+import java.util.ArrayList;
+import java.util.Scanner;
 
-/**
- *
- * @author apire
- */
 public class Main {
-
-    public static void main(String[] args) {
-        System.out.println("Hello World!");
-    }
+ static ArrayList<Client> clients = new ArrayList<>();
+ static Scanner sc = new Scanner(System.in);
+ static void createClient(Client client){
+     clients.add(client);
+ }
+ 
+ public static void main(String[] args) {
+ // Aquí irá el menú (Fase 8)
+ }
 }
