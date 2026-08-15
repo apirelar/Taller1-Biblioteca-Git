@@ -9,9 +9,17 @@ package com.mycompany.biblioteca;
  * @author apire
  */
 public class Book extends Material{
-    
+    private String author;
+    private boolean available;
     public Book(String code, String tite, String anioPublic) {
         super(code, tite, anioPublic);
+        this.author=author;
+        this.available=available;
     }
+    public String getAuthor(){return author;}
+    public boolean getAvailable(){return available;}
     
-}
+    public void  setAuthor(String author){this.author=author;}
+    public void  setAvailable(boolean available){this.available=available;}
+    
+}   
