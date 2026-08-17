@@ -83,6 +83,25 @@ public class Main {
          System.out.println(book);
      }
   }
+  static void SearchBook(){
+     boolean found=false;
+     System.out.println("***** Search for a Book *****");
+     System.out.println("Enter book code:");
+     String code =sc.nextLine();
+     for(Book book: books){
+         if (book.getCode().equals(code)) {
+             System.out.println("Book found");
+             System.out.println("Name: "+book.getTitle());
+             System.out.println("Author: "+book.getAuthor());
+             System.out.println("Anio Public: "+book.getAnioPublic());
+             System.out.println("Available: "+(book.getAvailable() ? "Si":"No"));
+             found=true;
+         }
+         if(!found){
+             System.out.println("Client not found");
+         }
+     }   
+  }
          
  public static void main(String[] args) {
  // Aquí irá el menú (Fase 8)

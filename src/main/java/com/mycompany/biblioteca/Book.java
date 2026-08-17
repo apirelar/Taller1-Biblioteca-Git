@@ -14,7 +14,7 @@ public class Book extends Material{
     public Book(String code, String tite, String anioPublic) {
         super(code, tite, anioPublic);
         this.author=author;
-        this.available=available;
+        this.available=true;
     }
     public String getAuthor(){return author;}
     public boolean getAvailable(){return available;}
