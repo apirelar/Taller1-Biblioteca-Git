@@ -8,7 +8,9 @@ import java.util.Scanner;
 
 public class Main {
  static ArrayList<Client> clients = new ArrayList<>();
+ static ArrayList<Book> books= new ArrayList<>();
  static Scanner sc = new Scanner(System.in);
+ 
  static void createClient(Client client){
      clients.add(client);
  }
@@ -73,6 +75,14 @@ public class Main {
          System.out.println("Client not found");
      }
  }
+  static void createBook(Book book){
+     books.add(book);
+ }
+  static void listBook(){
+       for(Book book: books){
+         System.out.println(book);
+     }
+  }
          
  public static void main(String[] args) {
  // Aquí irá el menú (Fase 8)
