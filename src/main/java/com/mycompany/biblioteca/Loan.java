@@ -15,7 +15,7 @@ public class Loan {
     private LocalDate date;
     private String stated;
     
-    public Loan(String idLoan,Client client,Book book,LocalDate date,String stated ){
+    public Loan(String idLoan,Client client,Book book,LocalDate date ){
         this.idLoan=idLoan;
         this.client=client;
         this.book=book;
