@@ -189,7 +189,33 @@ public class Main {
       book.setAvailable(false);
       System.out.println("Loan successfully created");
   }
-         
+  static Loan SearchLoan(String idLoan){
+       for (Loan loan : loans) {
+        if (loan.getIDLoan().equalsIgnoreCase(idLoan)) {
+            return loan;
+        }
+    }
+    return null;
+  } 
+  static void returnLoan(){
+      System.out.println("***** Return for a loan *****");
+      System.out.println("Enter loan ID: ");
+      String idlo=sc.nextLine();
+      Loan loan=SearchLoan(idlo);
+      if(loan==null){
+          System.out.println("Loan not found");
+          return;
+      }
+      if (loan.getStated().equals("DEVUELTO")) {
+        System.out.println("This Loan has already been repaid.");
+        return;
+    }
+      loan.setStated("Devuelto");
+      loan.getBook().setAvailable(true);
+      
+      System.out.println("Loan successfully return");
+      
+  }  
  public static void main(String[] args) {
  // Aquí irá el menú (Fase 8)
  }
