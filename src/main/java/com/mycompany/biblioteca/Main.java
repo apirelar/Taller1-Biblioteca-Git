@@ -54,6 +54,7 @@ public class Main {
              String newEmail=sc.nextLine();
              client.setEmail(newEmail);
              found=true;
+             System.out.println("Client successfully updated");
          }
      }
      if(!found){
@@ -93,14 +94,38 @@ public class Main {
              System.out.println("Book found");
              System.out.println("Name: "+book.getTitle());
              System.out.println("Author: "+book.getAuthor());
-             System.out.println("Anio Public: "+book.getAnioPublic());
+             System.out.println("Year Publication: "+book.getYear());
              System.out.println("Available: "+(book.getAvailable() ? "Si":"No"));
              found=true;
          }
          if(!found){
-             System.out.println("Client not found");
+             System.out.println("Book not found");
          }
      }   
+  }
+  static void UpdateBook(){
+      boolean found=false;
+     System.out.println("***** Update for a Book *****");
+     System.out.println("Enter book code:");
+     String code=sc.nextLine();
+     for(Book book: books){
+         if (book.getCode().equals(code)) {
+             System.out.println("Enter new Title");
+             String newName=sc.nextLine();
+             book.setTitle(newName);
+             System.out.println("Enter new Author");
+             String newAuthor=sc.nextLine();
+             book.setAuthor(newAuthor);
+             System.out.println("Enter new Year Publication");
+             String newYear=sc.nextLine();
+             book.setYear(newYear);
+             found=true;
+             System.out.println("Book successfully updated");
+         }
+     }
+     if(!found){
+             System.out.println("Book not found");
+         }
   }
          
  public static void main(String[] args) {

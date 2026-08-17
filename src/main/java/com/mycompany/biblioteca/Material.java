@@ -11,19 +11,19 @@ package com.mycompany.biblioteca;
 public  abstract class Material {
     protected String code;
     protected String title;
-    protected String anioPublic;
+    protected String year;
     
-    public Material(String code, String tite, String anioPublic){
-        this.anioPublic=anioPublic;
+    public Material(String code, String title, String year){
+        this.year=year;
         this.code=code;
         this.title=title;
     }
     public String getCode(){ return code;}
     public String getTitle(){ return title;}
-    public String getAnioPublic(){ return anioPublic;}
+    public String getYear(){ return year;}
     
     public void setCode(String code){ this.code=code;}
     public void setTitle(String title){ this.title=title;}
-    public void setAnioPublic(String anioPublic){ this.anioPublic=anioPublic;}
+    public void setYear(String Year){ this.year=year;}
 }
 
