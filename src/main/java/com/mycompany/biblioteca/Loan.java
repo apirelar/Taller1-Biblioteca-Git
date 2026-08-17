@@ -20,7 +20,7 @@ public class Loan {
         this.client=client;
         this.book=book;
         this.date=date;
-        this.stated="Activo";
+        this.stated="Active";
     }
     public String getIDLoan(){return idLoan;}
     public Client getClient(){return client;}

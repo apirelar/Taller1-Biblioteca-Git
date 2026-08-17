@@ -171,7 +171,7 @@ public class Main {
      }
  }
   static void CreateLoan(){
-    System.out.println("***** Create for a loan *****");
+      System.out.println("***** Create for a loan *****");
       System.out.println("Enter loan  ID: ");
       String idLoan=sc.nextLine();
       System.out.println("Enter client  ID: ");
@@ -206,16 +206,27 @@ public class Main {
           System.out.println("Loan not found");
           return;
       }
-      if (loan.getStated().equals("DEVUELTO")) {
+      if (loan.getStated().equals("returned")) {
         System.out.println("This Loan has already been repaid.");
         return;
     }
-      loan.setStated("Devuelto");
+      loan.setStated("returned");
       loan.getBook().setAvailable(true);
       
-      System.out.println("Loan successfully return");
-      
-  }  
+      System.out.println("Loan successfully returned"); 
+  }
+static  void readLoan(){
+    boolean active=false;
+    for(Loan loan: loans){
+        if(loan.getStated().equals("active")){
+            System.out.println(loan);
+            active=false;
+        }
+    }
+    if(!active){
+        System.out.println("There are no active loans.");
+    }
+}  
  public static void main(String[] args) {
  // Aquí irá el menú (Fase 8)
  }
