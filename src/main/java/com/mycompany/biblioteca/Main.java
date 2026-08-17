@@ -70,6 +70,7 @@ public class Main {
          if (client.getId().equals(id)) {
          clients.remove(client);
          found=true;
+             System.out.println("Client successfully deleted");
          }
     }
      if(!found){
@@ -127,6 +128,22 @@ public class Main {
              System.out.println("Book not found");
          }
   }
+  static void DeleteBook(){
+      boolean found=false;
+     System.out.println("***** Delete for a book *****");
+     System.out.println("Enter book code:");
+     String code=sc.nextLine();
+     for(Book book: books){
+         if (book.getCode().equals(code)) {
+         books.remove(book);
+         found=true;
+             System.out.println("Book successfully deleted");
+         }
+    }
+     if(!found){
+         System.out.println("Book not found");
+     }
+ }
          
  public static void main(String[] args) {
  // Aquí irá el menú (Fase 8)
