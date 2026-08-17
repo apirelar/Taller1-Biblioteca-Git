@@ -11,13 +11,13 @@ package com.mycompany.biblioteca;
 public class Book extends Material{
     private String author;
     private boolean available;
-    public Book(String code, String tite, String anioPublic) {
-        super(code, tite, anioPublic);
+    public Book(String code, String title, String year,String author ) {
+        super(code, title, year);
         this.author=author;
         this.available=true;
     }
     public String getAuthor(){return author;}
-    public boolean getAvailable(){return available;}
+    public boolean isAvailable(){return available;}
     
     public void  setAuthor(String author){this.author=author;}
     public void  setAvailable(boolean available){this.available=available;}
