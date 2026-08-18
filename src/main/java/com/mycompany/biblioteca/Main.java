@@ -12,7 +12,106 @@ public class Main {
  static ArrayList<Book> books= new ArrayList<>();
  static ArrayList<Loan> loans= new ArrayList<>();
  static Scanner sc = new Scanner(System.in);
- 
+static void LoanMenu(){
+    int op3;
+             System.out.println("***** MANAGE LOANS *****");
+             System.out.println("1. Create loans");
+             System.out.println("2. List loans");
+             System.out.println("3. Return loans");
+             System.out.println("4. Exit");
+             System.out.println("Choose one option");
+             op3=readOption();
+             
+             switch(op3){
+                 case 1:
+                     CreateLoan();
+                     break;
+                 case 2:
+                     readLoan();
+                     break;
+                 case 3:
+                     returnLoan();
+                     break;
+                 case 4:
+                     break;
+                 default:
+                     System.out.println("Option not available");
+             }  
+}
+ static void BookMenu(){
+     int op2;
+     System.out.println("***** MANAGE BOOKS *****");
+     System.out.println("1. Create books");
+     System.out.println("2. List books");
+     System.out.println("3. Search books");
+     System.out.println("4. Update books");
+     System.out.println("5. Delette books");
+     System.out.println("6. Exit");
+     System.out.println("Choose one option");
+     op2=readOption();
+             
+             switch(op2){
+                 case 1:
+                     createBook();
+                     break;
+                 case 2:
+                     listBook();
+                     break;
+                 case 3:
+                     System.out.println("***** Search for a book *****");
+                     System.out.println("Enter book code: ");
+                     String id=sc.nextLine();
+                     SearchBook(id);
+                     break;
+                 case 4:
+                     UpdateBook();
+                     break;
+                 case 5:
+                     DeleteBook();
+                     break;
+                 case 6:
+                     break;
+                 default:
+                     System.out.println("Option not available");
+             }
+ }
+ static void ClientMenu(){
+     int op1;
+     System.out.println("***** MANAGE CLIENTS *****");
+             System.out.println("1. Create clients");
+             System.out.println("2. Read clients");
+             System.out.println("3. Search clients");
+             System.out.println("4. Update clients");
+             System.out.println("5. Delette clients");
+             System.out.println("6. Exit");
+             System.out.println("Choose one option");
+             op1=readOption();
+             
+             switch(op1){
+                 case 1:
+                     createClient();
+                     break;
+                 case 2:
+                     ReadClient();
+                     break;
+                 case 3:
+                     System.out.println("***** Search for a client *****");
+                     System.out.println("Enter client ID: ");
+                     String clientId=sc.nextLine();
+                     ReadSearch(clientId);
+                     break;
+                 case 4:
+                     updateClient();
+                     break;
+                 case 5:
+                     DeleteClient();
+                     break;
+                 case 6:
+                     break;
+                 default:
+                     System.out.println("Option not available");
+             }
+ }
  static void createClient(){
       System.out.println("***** Create for a client *****");
     System.out.print("Enter client Id: ");
@@ -45,10 +144,10 @@ public class Main {
              found=true;
              return client;
          }
-         if(!found){
+     } 
+     if(!found){
              System.out.println("Client not found");
          }
-     } 
      return null;
  }
  static void updateClient(){
@@ -76,21 +175,16 @@ public class Main {
          }
  }
  static void DeleteClient(){
-      boolean found=false;
-     System.out.println("***** Delete for a client *****");
-     System.out.println("Enter client ID:");
-     String id=sc.nextLine();
-     for(Client client: clients){
-         if (client.getId().equals(id)) {
-         clients.remove(client);
-         found=true;
-             System.out.println("Client successfully deleted");
-         }
+    System.out.println("***** Delete for a client *****");
+    System.out.println("Enter client ID:");
+    String id = sc.nextLine();
+    boolean found = clients.removeIf(client -> client.getId().equals(id));
+    if(found){
+        System.out.println("Client successfully deleted");
+    } else {
+        System.out.println("Client not found");
     }
-     if(!found){
-         System.out.println("Client not found");
-     }
- }
+}
   static void createBook(){
        System.out.println("***** Create for a book *****");
     System.out.print("Enter book Code: ");
@@ -124,10 +218,10 @@ public class Main {
              found=true;
              return book;
          }
-         if(!found){
+     } 
+     if(!found){
              System.out.println("Book not found");
          }
-     } 
      return null;
   }
   static void UpdateBook(){
@@ -154,22 +248,17 @@ public class Main {
              System.out.println("Book not found");
          }
   }
-  static void DeleteBook(){
-      boolean found=false;
-     System.out.println("***** Delete for a book *****");
-     System.out.println("Enter book code:");
-     String code=sc.nextLine();
-     for(Book book: books){
-         if (book.getCode().equals(code)) {
-         books.remove(book);
-         found=true;
-             System.out.println("Book successfully deleted");
-         }
+ static void DeleteBook(){
+    System.out.println("***** Delete for a book *****");
+    System.out.println("Enter book code:");
+    String code = sc.nextLine();
+    boolean found = books.removeIf(book -> book.getCode().equals(code));
+    if(found){
+        System.out.println("Book successfully deleted");
+    } else {
+        System.out.println("Book not found");
     }
-     if(!found){
-         System.out.println("Book not found");
-     }
- }
+}
   static void CreateLoan(){
       System.out.println("***** Create for a loan *****");
       System.out.println("Enter loan  ID: ");
@@ -177,9 +266,17 @@ public class Main {
       System.out.println("Enter client  ID: ");
       String idClient=sc.nextLine();
       Client client=ReadSearch(idClient);
+       if (client == null) {  
+        System.out.println("Client not found. Loan not created.");
+        return;
+    }
       System.out.println("Enter book  code: ");
       String code=sc.nextLine();
       Book book= SearchBook(code);
+      if (book == null) {  // ← Validar libro
+        System.out.println("Book not found. Loan not created.");
+        return;
+    }
       if (!book.isAvailable()) {
           System.out.println("Book not available");
           return;
@@ -218,16 +315,53 @@ public class Main {
 static  void readLoan(){
     boolean active=false;
     for(Loan loan: loans){
-        if(loan.getStated().equals("active")){
+        if(loan.getStated().equalsIgnoreCase("active")){
             System.out.println(loan);
-            active=false;
+            active=true;
         }
     }
     if(!active){
         System.out.println("There are no active loans.");
     }
 }  
+static int readOption(){
+    while(true){
+        try {
+            int op = sc.nextInt();
+            sc.nextLine();
+            return op;
+        } catch (java.util.InputMismatchException e) {
+            System.out.println("Please enter a valid number.");
+            sc.nextLine();
+        }
+    }
+}
  public static void main(String[] args) {
- // Aquí irá el menú (Fase 8)
+ int op;
+ do{
+     System.out.println("***** LIBRARY MANAGEMENT *****");
+     System.out.println("1. Manage Clients");
+     System.out.println("2. Manage Books");
+     System.out.println("3. Manage Loans");
+     System.out.println("4. Exit");
+     System.out.println("Choose one option");
+     op=readOption();
+     switch(op){
+         case 1:
+             ClientMenu();
+             break;
+         case 2:
+             BookMenu();
+             break;
+        case 3:
+            LoanMenu();
+            break; 
+        case 4:
+            return;
+        default:
+            System.out.println("Option not available");
+     }
+     
+ }while(op!=4);
  }
 }

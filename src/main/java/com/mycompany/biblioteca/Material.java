@@ -24,6 +24,6 @@ public  abstract class Material {
     
     public void setCode(String code){ this.code=code;}
     public void setTitle(String title){ this.title=title;}
-    public void setYear(String Year){ this.year=year;}
+    public void setYear(String year){ this.year=year;}
 }
 

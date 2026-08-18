@@ -22,4 +22,12 @@ public class Book extends Material{
     public void  setAuthor(String author){this.author=author;}
     public void  setAvailable(boolean available){this.available=available;}
     
+    @Override
+    public String toString() {
+        return " |Code: " + code +
+               " |Title: " + title +
+               " |Author: " + author +
+               " |Year: " + year +
+               " |Available: " + (available ? "Yes" : "No");
+    }
 }   
