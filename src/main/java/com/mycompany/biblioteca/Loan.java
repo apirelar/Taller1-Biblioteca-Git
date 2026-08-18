@@ -20,7 +20,7 @@ public class Loan {
         this.client=client;
         this.book=book;
         this.date=date;
-        this.stated="Active";
+        this.stated="active";
     }
     public String getIDLoan(){return idLoan;}
     public Client getClient(){return client;}
@@ -33,4 +33,13 @@ public class Loan {
     public void setBook(Book book){this.book=book;}
     public void setDate(LocalDate date){this.date=date;}
     public void setStated(String stated){this.stated=stated;}
+    
+    @Override
+    public String toString() {
+        return " |Loan ID: " + idLoan +
+               " |Client: " + client.getName() +
+               " |Book: " + book.getTitle() +
+               " |Date: " + date +
+               " |stated: " + stated;
+    }
 }
